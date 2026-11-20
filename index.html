@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gift Card </title>
+<title>Gift Card</title>
 
 <style>
 * {
@@ -28,7 +28,7 @@ body {
     padding-bottom: 75px;
 }
 
-/* TOP HEADER */
+/* HEADER */
 
 .header {
     height: 75px;
@@ -114,44 +114,23 @@ body {
     font-weight: bold;
 }
 
-/* GIFT CARD */
+/* AMAZON PAY GIFT CARD IMAGE */
 
 .gift-card {
+    width: 100%;
     height: 270px;
     margin-top: 24px;
-    border-radius: 25px;
-    background: linear-gradient(135deg,#ff7900,#e65300);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 5px 15px #ccc;
+    border-radius: 20px;
     overflow: hidden;
-    border: 5px solid white;
+    background: transparent;
+    box-shadow: 0 5px 15px #ccc;
 }
 
-.gift-card::before {
-    content: "AMAZON";
-    position: absolute;
-    font-size: 85px;
-    color: rgba(255,255,255,.13);
-    transform: rotate(-25deg);
-    font-weight: bold;
-}
-
-.smile {
-    color: white;
-    font-size: 100px;
-    position: relative;
-}
-
-.card-text {
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
-    color: white;
-    font-size: 14px;
-    text-align: right;
+.gift-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
 }
 
 /* REDEEM BUTTON */
@@ -214,8 +193,6 @@ body {
     color: #16899a;
 }
 
-/* MOBILE */
-
 @media(max-width: 485px) {
     .phone {
         width: 100%;
@@ -232,7 +209,6 @@ body {
 
 <header class="header">
 
-    <!-- BACK ARROW -->
     <div class="back">
         <svg width="27" height="27" viewBox="0 0 24 24"
         fill="none" stroke="white" stroke-width="2.5"
@@ -242,10 +218,8 @@ body {
         </svg>
     </div>
 
-    <!-- SEARCH BAR -->
     <div class="search">
 
-        <!-- SEARCH ICON -->
         <svg width="21" height="21" viewBox="0 0 24 24"
         fill="none" stroke="#555" stroke-width="2.2"
         stroke-linecap="round">
@@ -257,7 +231,6 @@ body {
             Search or ask a question...
         </span>
 
-        <!-- CAMERA ICON -->
         <svg width="22" height="22" viewBox="0 0 24 24"
         fill="none" stroke="#555" stroke-width="1.8"
         stroke-linecap="round" stroke-linejoin="round">
@@ -267,7 +240,6 @@ body {
 
     </div>
 
-    <!-- MICROPHONE -->
     <div class="header-icon">
         <svg width="23" height="27" viewBox="0 0 24 24"
         fill="none" stroke="white" stroke-width="2"
@@ -279,24 +251,20 @@ body {
         </svg>
     </div>
 
-    <!-- QR SCANNER -->
     <div class="header-icon">
         <svg width="24" height="27" viewBox="0 0 24 24"
         fill="none" stroke="white" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round">
-
             <path d="M3 8V4H8"/>
             <path d="M16 4H21V9"/>
             <path d="M21 16V20H16"/>
             <path d="M8 20H3V15"/>
-
             <rect x="7" y="7" width="10" height="10" rx="1"/>
             <path d="M10 10H14V14H10Z"/>
         </svg>
     </div>
 
 </header>
-
 
 <!-- MAIN CONTENT -->
 
@@ -310,7 +278,7 @@ body {
             </div>
 
             <div class="subtitle">
-                gift card 
+                Gift Card Demo
             </div>
         </div>
 
@@ -318,21 +286,21 @@ body {
 
     </div>
 
+    <!-- YOUR UPLOADED IMAGE -->
 
     <div class="gift-card">
 
-        <div class="smile">⌣</div>
-
-        <div class="card-text">
-            SAMPLEPAY<br>
-            GIFT CARD
-        </div>
+        <img
+            src="amazon-pay-gift-card.png"
+            alt="Amazon Pay Gift Card"
+        >
 
     </div>
 
+    <!-- DEMO BUTTON -->
 
     <button class="redeem"
-    onclick="window.location.href='login.html'">
+    onclick="alert('This is a gift card design demo.')">
 
         Redeem Gift Card
 
@@ -340,88 +308,61 @@ body {
 
 </main>
 
-
 <!-- BOTTOM NAVIGATION -->
 
 <nav class="bottom-nav">
 
-    <!-- HOME -->
     <div class="nav-item">
-
         <svg viewBox="0 0 24 24">
             <path d="M3 10L12 3L21 10V21H3Z"/>
             <path d="M9 21V13H15V21"/>
         </svg>
-
         Home
     </div>
 
-
-    <!-- YOU -->
     <div class="nav-item">
-
         <svg viewBox="0 0 24 24">
             <circle cx="12" cy="7" r="4"/>
             <path d="M5 21V19A7 7 0 0 1 19 19V21"/>
         </svg>
-
         You
     </div>
 
-
-    <!-- WALLET -->
     <div class="nav-item active">
-
         <svg viewBox="0 0 24 24">
             <rect x="2" y="5" width="20" height="15" rx="2"/>
             <path d="M2 9H22"/>
             <rect x="8" y="12" width="8" height="5" rx="1"/>
         </svg>
-
         Wallet
     </div>
 
-
-    <!-- CART -->
     <div class="nav-item">
-
         <svg viewBox="0 0 24 24">
             <path d="M2 3H4L7 16H19L22 7H6"/>
             <circle cx="9" cy="21" r="1.5"/>
             <circle cx="18" cy="21" r="1.5"/>
         </svg>
-
         Cart
-
     </div>
 
-
-    <!-- BROWSE -->
     <div class="nav-item">
-
         <svg viewBox="0 0 24 24">
             <path d="M3 6H21"/>
             <path d="M3 12H21"/>
             <path d="M3 18H21"/>
         </svg>
-
         Browse
-
     </div>
 
-
-    <!-- RUFUS -->
     <div class="nav-item">
-
         <svg viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="9"/>
             <circle cx="9" cy="10" r="1"/>
             <circle cx="15" cy="10" r="1"/>
             <path d="M8 15Q12 19 16 15"/>
         </svg>
-
         Rufus
-
     </div>
 
 </nav>
@@ -430,4 +371,3 @@ body {
 
 </body>
 </html>
-
