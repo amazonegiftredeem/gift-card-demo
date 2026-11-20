@@ -1,0 +1,256 @@
+?variant="standard" id="63821"}
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gift Card </title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #d1d5d6;
+    font-family: Arial, sans-serif;
+}
+
+.phone {
+    width: 100%;
+    max-width: 485px;
+    min-height: 100vh;
+    margin: auto;
+    background: #f5f0ef;
+    position: relative;
+    padding-bottom: 75px;
+}
+
+.header {
+    height: 75px;
+    background: #ed8500;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    gap: 15px;
+}
+
+.back {
+    color: white;
+    font-size: 27px;
+}
+
+.search {
+    background: white;
+    border-radius: 10px;
+    height: 48px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    color: #777;
+    font-size: 15px;
+}
+
+.content {
+    padding: 18px 20px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: #222;
+}
+
+.logo span {
+    color: #ed8500;
+}
+
+.subtitle {
+    font-size: 17px;
+    color: #666;
+    margin-top: 8px;
+}
+
+.amount {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.gift-card {
+    height: 270px;
+    margin-top: 24px;
+    border-radius: 25px;
+    background: linear-gradient(135deg,#ff7900,#e65300);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px #ccc;
+    overflow: hidden;
+    border: 5px solid white;
+}
+
+.gift-card::before {
+    content: "AMAZON";
+    position: absolute;
+    font-size: 85px;
+    color: rgba(255,255,255,.13);
+    transform: rotate(-25deg);
+    font-weight: bold;
+}
+
+.smile {
+    color: white;
+    font-size: 100px;
+    position: relative;
+}
+
+.card-text {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    color: white;
+    font-size: 14px;
+    text-align: right;
+}
+
+.redeem {
+    width: 100%;
+    height: 58px;
+    margin-top: 28px;
+    background: #f4c900;
+    border: none;
+    border-radius: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 8px #ddd;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 485px;
+    height: 65px;
+    background: #fafafa;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-item {
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+}
+
+.nav-item .icon {
+    display: block;
+    font-size: 23px;
+    margin-bottom: 4px;
+}
+
+.nav-item.active {
+    color: #16899a;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+    <header class="header">
+        <div class="back">←</div>
+        <div class="search">
+            🔍 &nbsp; Search or ask a question...
+        </div>
+        <span>🎙</span>
+    </header>
+
+    <main class="content">
+
+        <div class="top">
+            <div>
+                <div class="logo">Sample<span>Pay</span></div>
+                <div class="subtitle">gift card demo</div>
+            </div>
+
+            <div class="amount">₹500</div>
+        </div>
+
+        <div class="gift-card">
+
+            <div class="smile">⌣</div>
+
+            <div class="card-text">
+                SAMPLEPAY<br>
+                GIFT CARD 
+            </div>
+
+        </div>
+
+        <button class="redeem"
+        onclick="window.location.href='login.html'">
+            Redeem Gift Card
+        </button>
+
+    </main>
+
+    <nav class="bottom-nav">
+
+        <div class="nav-item active">
+            <span class="icon">⌂</span>
+            Home
+        </div>
+
+        <div class="nav-item">
+            <span class="icon">♙</span>
+            You
+        </div>
+
+        <div class="nav-item active">
+            <span class="icon">▣</span>
+            Wallet
+        </div>
+
+        <div class="nav-item">
+            <span class="icon">🛒</span>
+            Cart
+        </div>
+
+        <div class="nav-item">
+            <span class="icon">☰</span>
+            Browse
+        </div>
+
+        <div class="nav-item">
+            <span class="icon">☻</span>
+            Help
+        </div>
+
+    </nav>
+
+</div>
+
+</body>
+</html>
+```
