@@ -1,0 +1,556 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift Card Demo</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #d1d5d6;
+    font-family: Arial, sans-serif;
+}
+
+.phone {
+    width: 100%;
+    max-width: 485px;
+    min-height: 100vh;
+    margin: auto;
+    background: #f5f0ef;
+    position: relative;
+    padding-bottom: 80px;
+}
+
+/* TOP HEADER */
+
+.header {
+    height: 75px;
+    background: #ed8500;
+    border-bottom: 4px solid #8c008c;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 13px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+}
+
+.back {
+    width: 25px;
+}
+
+.search {
+    height: 48px;
+    flex: 1;
+    background: white;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 10px;
+    min-width: 0;
+}
+
+.search span {
+    flex: 1;
+    font-size: 14px;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.search svg {
+    flex-shrink: 0;
+}
+
+.header-icon {
+    width: 24px;
+}
+
+/* MAIN CONTENT */
+
+.content {
+    padding: 14px 20px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 17px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #222;
+}
+
+.logo span {
+    color: #ed8500;
+}
+
+.subtitle {
+    font-size: 17px;
+    color: #666;
+    margin-top: 8px;
+}
+
+.amount {
+    font-size: 31px;
+    font-weight: bold;
+}
+
+/* GIFT CARD */
+
+.gift-card {
+    width: 100%;
+    height: 275px;
+    margin-top: 23px;
+    padding: 7px;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 5px 18px #ddd;
+}
+
+.card-design {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff7600, #f45a00);
+    border: 3px solid #fff;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Decorative gift ribbons */
+
+.ribbon {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 13px solid rgba(180, 65, 0, .28);
+    border-radius: 50%;
+}
+
+.ribbon.one {
+    top: -65px;
+    right: -35px;
+}
+
+.ribbon.two {
+    bottom: -80px;
+    left: -55px;
+}
+
+.ribbon::before,
+.ribbon::after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 40px;
+    border: 10px solid rgba(180, 65, 0, .28);
+    border-radius: 50%;
+    top: 30px;
+}
+
+.ribbon::before {
+    left: -55px;
+    transform: rotate(35deg);
+}
+
+.ribbon::after {
+    right: -55px;
+    transform: rotate(-35deg);
+}
+
+/* Decorative smile arrow */
+
+.smile {
+    width: 210px;
+    height: 90px;
+    position: relative;
+    z-index: 2;
+}
+
+.smile svg {
+    width: 100%;
+    height: 100%;
+}
+
+.card-label {
+    position: absolute;
+    right: 15px;
+    bottom: 14px;
+    color: white;
+    font-size: 13px;
+    text-align: right;
+    font-weight: bold;
+    z-index: 3;
+}
+
+/* REDEEM BUTTON */
+
+.redeem {
+    width: 100%;
+    height: 55px;
+    margin-top: 26px;
+    background: #f4c900;
+    border: none;
+    border-radius: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 9px #ddd;
+}
+
+/* BOTTOM NAVIGATION */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 485px;
+    height: 65px;
+    background: #fafafa;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+}
+
+.nav-item {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    color: #666;
+    font-size: 12px;
+    position: relative;
+}
+
+.nav-item svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.nav-item.active {
+    color: #16899a;
+    border-bottom: 3px solid #16899a;
+}
+
+.badge {
+    position: absolute;
+    top: 4px;
+    right: 22%;
+    width: 17px;
+    height: 17px;
+    background: #ed8500;
+    color: white;
+    font-size: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dot {
+    position: absolute;
+    top: 9px;
+    right: 25%;
+    width: 8px;
+    height: 8px;
+    background: #e21c44;
+    border-radius: 50%;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 400px) {
+    .header {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .search span {
+        font-size: 12px;
+    }
+
+    .content {
+        padding: 14px;
+    }
+
+    .gift-card {
+        height: 235px;
+    }
+
+    .amount {
+        font-size: 27px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <!-- BACK -->
+    <div class="icon back">
+        <svg width="25" height="25" viewBox="0 0 24 24"
+        fill="none" stroke="white" stroke-width="2.5"
+        stroke-linecap="round">
+            <path d="M19 12H5"/>
+            <path d="M12 19L5 12L12 5"/>
+        </svg>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="search">
+
+        <!-- Search icon -->
+        <svg width="21" height="21" viewBox="0 0 24 24"
+        fill="none" stroke="#555" stroke-width="2">
+            <circle cx="10.5" cy="10.5" r="6.5"/>
+            <path d="M16 16L21 21"/>
+        </svg>
+
+        <span>Search or ask a question...</span>
+
+        <!-- Camera icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24"
+        fill="none" stroke="#555" stroke-width="1.8">
+            <path d="M4 7H7L9 4H15L17 7H20V19H4Z"/>
+            <circle cx="12" cy="13" r="3.5"/>
+        </svg>
+
+    </div>
+
+    <!-- MICROPHONE -->
+    <div class="icon header-icon">
+        <svg width="23" height="27" viewBox="0 0 24 24"
+        fill="none" stroke="white" stroke-width="2"
+        stroke-linecap="round">
+            <rect x="9" y="2" width="6" height="13" rx="3"/>
+            <path d="M5 11V12A7 7 0 0 0 19 12V11"/>
+            <path d="M12 19V23"/>
+            <path d="M9 23H15"/>
+        </svg>
+    </div>
+
+    <!-- QR SCANNER -->
+    <div class="icon header-icon">
+        <svg width="25" height="27" viewBox="0 0 24 24"
+        fill="none" stroke="white" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+
+            <path d="M3 8V4H8"/>
+            <path d="M16 4H21V9"/>
+            <path d="M21 16V20H16"/>
+            <path d="M8 20H3V15"/>
+
+            <rect x="7" y="7" width="10" height="10" rx="1"/>
+            <path d="M10 10H14V14H10Z"/>
+
+        </svg>
+    </div>
+
+</header>
+
+
+<!-- MAIN -->
+
+<main class="content">
+
+    <div class="top">
+
+        <div>
+            <div class="logo">
+                Sample<span>Pay</span>
+            </div>
+
+            <div class="subtitle">
+                Gift Card Demo
+            </div>
+        </div>
+
+        <div class="amount">₹500</div>
+
+    </div>
+
+
+    <!-- GIFT CARD -->
+
+    <div class="gift-card">
+
+        <div class="card-design">
+
+            <div class="ribbon one"></div>
+            <div class="ribbon two"></div>
+
+            <div class="smile">
+
+                <svg viewBox="0 0 220 100">
+                    <path
+                    d="M12 27 Q100 112 195 27"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="12"
+                    stroke-linecap="round"/>
+
+                    <path
+                    d="M173 25 L202 17 L193 46"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="11"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"/>
+                </svg>
+
+            </div>
+
+            <div class="card-label">
+                SamplePay<br>Gift Card
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- REDEEM BUTTON -->
+
+    <button class="redeem"
+    onclick="alert('SamplePay Gift Card Demo')">
+
+        Redeem Gift Card
+
+    </button>
+
+</main>
+
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+    <!-- HOME -->
+    <div class="nav-item">
+
+        <svg viewBox="0 0 24 24">
+            <path d="M3 10L12 3L21 10V21H3Z"/>
+            <path d="M9 21V13H15V21"/>
+        </svg>
+
+        Home
+    </div>
+
+
+    <!-- YOU -->
+    <div class="nav-item">
+
+        <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="7" r="4"/>
+            <path d="M5 21V19A7 7 0 0 1 19 19V21"/>
+        </svg>
+
+        You
+    </div>
+
+
+    <!-- WALLET -->
+    <div class="nav-item active">
+
+        <svg viewBox="0 0 24 24">
+            <rect x="2" y="5" width="20" height="15" rx="2"/>
+            <path d="M2 9H22"/>
+            <rect x="8" y="12" width="8" height="5" rx="1"/>
+        </svg>
+
+        Wallet
+    </div>
+
+
+    <!-- CART -->
+    <div class="nav-item">
+
+        <span class="badge">3</span>
+
+        <svg viewBox="0 0 24 24">
+            <path d="M2 3H4L7 16H19L22 7H6"/>
+            <circle cx="9" cy="21" r="1.5"/>
+            <circle cx="18" cy="21" r="1.5"/>
+        </svg>
+
+        Cart
+    </div>
+
+
+    <!-- BROWSE -->
+    <div class="nav-item">
+
+        <svg viewBox="0 0 24 24">
+            <path d="M3 6H21"/>
+            <path d="M3 12H21"/>
+            <path d="M3 18H21"/>
+        </svg>
+
+        Browse
+    </div>
+
+
+    <!-- RUFUS -->
+    <div class="nav-item">
+
+        <span class="dot"></span>
+
+        <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <circle cx="9" cy="10" r="1"/>
+            <circle cx="15" cy="10" r="1"/>
+            <path d="M8 15Q12 19 16 15"/>
+        </svg>
+
+        Rufus
+    </div>
+
+</nav>
+
+</div>
+
+</body>
+</html>
+```
